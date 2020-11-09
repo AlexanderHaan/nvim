@@ -1,21 +1,32 @@
 call plug#begin(stdpath('data') . '/plugged')
 
-" let Vundle manage Vundle, required
-Plug 'VundleVim/Vundle.vim'
-
 " NerdTree
 Plug 'preservim/nerdtree'
 
 " One Dark Colorscheme
 Plug 'joshdick/onedark.vim'
 " Line for Vim
-Plug 'itchyny/lightline.vim' 
+Plug 'itchyny/lightline.vim'
 
 " Autopairs for vim
 Plug 'jiangmiao/auto-pairs'
 
 " Emmet for vim
 Plug 'mattn/emmet-vim'
+
+" Resizing of windows
+Plug 'simeji/winresizer'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+
+" Ctrl-P for faster file search
+Plug 'ctrlpvim/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -44,6 +55,9 @@ let NERDTreeShowLineNumbers=1
 " Vertical Split below
 set splitbelow
 
+" Terminal settings
+tnoremap jj <C-\><C-N>
+
 " For tags jumping
 nnoremap <leader>t <C-]>
 
@@ -51,23 +65,27 @@ nnoremap <leader>t <C-]>
 inoremap jj <ESC>
 
 " Only this will be runtimepath
-let $RTP="~/.vim"
-let $RC="~/.vim/vimrc"
+let $RTP="~/AppData/Local/nvim/"
+let $RC="~/AppData/Local/nvim/init.vim"
 
 " Set right path for find
 set path=.,**
-
-" Configure line
 let g:lightline = {
 	\ 'colorscheme': 'onedark',
 	\ }
 set laststatus=2
+
+" Set right shell
+set shell=powershell.exe
+
+" Filetypes for different languages
+au BufRead,BufNewFile *.a51 set filetype=asm
 
 " Folding
 set foldmethod=indent
 set foldlevel=1
 
 " Set colorscheme
-" let g:onedark_terminal_italics=1
-let g:onedark_termcolors=16
+let g:onedark_terminal_italics=1
+" let g:onedark_termcolors=16
 colorscheme onedark
