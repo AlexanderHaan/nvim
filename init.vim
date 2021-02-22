@@ -5,6 +5,7 @@ Plug 'preservim/nerdtree'
 
 " One Dark Colorscheme
 Plug 'joshdick/onedark.vim'
+
 " Line for Vim
 Plug 'itchyny/lightline.vim'
 
@@ -65,8 +66,8 @@ nnoremap <leader>t <C-]>
 inoremap jj <ESC>
 
 " Only this will be runtimepath
-let $RTP="~/AppData/Local/nvim/"
-let $RC="~/AppData/Local/nvim/init.vim"
+let $RTP=stdpath('config')
+let $RC=stdpath('config') . '/init.vim'
 
 " Set right path for find
 set path=.,**
