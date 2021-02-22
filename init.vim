@@ -18,16 +18,14 @@ Plug 'mattn/emmet-vim'
 " Resizing of windows
 Plug 'simeji/winresizer'
 
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
-
 " Ctrl-P for faster file search
 Plug 'ctrlpvim/ctrlp.vim'
+
+" Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Toml plugin
+Plug 'cespare/vim-toml'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -77,7 +75,7 @@ let g:lightline = {
 set laststatus=2
 
 " Set right shell
-set shell=powershell.exe
+" set shell=powershell.exe
 
 " Filetypes for different languages
 au BufRead,BufNewFile *.a51 set filetype=asm
@@ -85,6 +83,23 @@ au BufRead,BufNewFile *.a51 set filetype=asm
 " Folding
 set foldmethod=indent
 set foldlevel=1
+
+" Coc Settings
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+" Coc Mappings
+nmap <leader>n  <Plug>(coc-diagnostic-next-error)
 
 " Set colorscheme
 let g:onedark_terminal_italics=1
