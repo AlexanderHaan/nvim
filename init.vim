@@ -34,6 +34,10 @@ set hlsearch " For search highlighting
 set wildmenu " For looking up for files
 set nocompatible
 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 " Set own leader
 let mapleader=","
 
