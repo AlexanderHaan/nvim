@@ -42,6 +42,7 @@ let g:lightline = {
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set autoindent
 
 " Set own leader
 let mapleader=","
