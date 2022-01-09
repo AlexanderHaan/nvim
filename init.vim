@@ -18,8 +18,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'dracula/vim'
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Or build from source code by using yarn: https://yarnpkg.com
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
