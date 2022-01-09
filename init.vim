@@ -2,24 +2,24 @@ call plug#begin(stdpath('data') . '/plugged')
 
 " NerdTree
 Plug 'preservim/nerdtree'
-
 " Line for Vim
 Plug 'itchyny/lightline.vim'
-
 " Autopairs for vim
 Plug 'jiangmiao/auto-pairs'
-
 " Emmet for vim
 Plug 'mattn/emmet-vim'
-
 " Ctrl-P for faster file search
 Plug 'ctrlpvim/ctrlp.vim'
-
 " Toml plugin
 Plug 'cespare/vim-toml'
-
 " Git plugin
 Plug 'tpope/vim-fugitive'
+" Dracula theme
+Plug 'dracula/vim'
+" Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Or build from source code by using yarn: https://yarnpkg.com
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -33,6 +33,11 @@ set encoding=utf-8 " Right encoding
 set hlsearch " For search highlighting
 set wildmenu " For looking up for files
 set nocompatible
+
+" Lightline settings
+let g:lightline = {
+      \ 'colorscheme': 'dracula',
+      \ }
 
 set tabstop=4
 set shiftwidth=4
@@ -78,3 +83,4 @@ au BufRead,BufNewFile *.a51 set filetype=asm
 set foldmethod=indent
 set foldlevel=1
 
+colorscheme dracula
