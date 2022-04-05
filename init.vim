@@ -1,3 +1,4 @@
+set encoding=utf-8 " Right encoding
 call plug#begin(stdpath('data') . '/plugged')
 
 " NerdTree
@@ -16,8 +17,10 @@ Plug 'cespare/vim-toml'
 Plug 'tpope/vim-fugitive'
 " Dracula theme
 Plug 'dracula/vim'
-" Use release branch (recommend)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Icons
+Plug 'ryanoasis/vim-devicons'
+" TypeScript Plugin
+Plug 'ianks/vim-tsx'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -27,10 +30,10 @@ syntax on " Pretty syntaxhighlighting
 set backspace=indent,eol,start " For backward deletions
 set hidden " Can edit files without to save them
 set noswapfile " Swap file will be made
-set encoding=utf-8 " Right encoding
 set hlsearch " For search highlighting
 set wildmenu " For looking up for files
 set nocompatible
+set mouse=a " enable mouse
 
 " Lightline settings
 let g:lightline = {
@@ -77,6 +80,7 @@ set path=.,**
 
 " Filetypes for different languages
 au BufRead,BufNewFile *.a51 set filetype=asm
+au BufRead,BufNewFile *.tex set filetype=tex
 
 " Folding
 set foldmethod=indent
