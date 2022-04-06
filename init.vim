@@ -21,6 +21,8 @@ Plug 'dracula/vim'
 Plug 'ryanoasis/vim-devicons'
 " TypeScript Plugin
 Plug 'ianks/vim-tsx'
+" LSP config package
+Plug 'neovim/nvim-lspconfig'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -34,6 +36,8 @@ set hlsearch " For search highlighting
 set wildmenu " For looking up for files
 set nocompatible
 set mouse=a " enable mouse
+
+lua require('lspconfig').rust_analyzer.setup{}
 
 " Lightline settings
 let g:lightline = {
