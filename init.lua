@@ -1,53 +1,47 @@
-set encoding=utf-8 " Right encoding
-call plug#begin(stdpath('data') . '/plugged')
+-- Set variables
+local set = vim.opt
 
-" NerdTree
-Plug 'preservim/nerdtree'
-" Line for Vim
-Plug 'itchyny/lightline.vim'
-" Autopairs for vim
-Plug 'jiangmiao/auto-pairs'
-" Emmet for vim
-Plug 'mattn/emmet-vim'
-" Ctrl-P for faster file search
-Plug 'ctrlpvim/ctrlp.vim'
-" Toml plugin
-Plug 'cespare/vim-toml'
-" Git plugin
-Plug 'tpope/vim-fugitive'
-" Dracula theme
-Plug 'dracula/vim'
-" Icons
-Plug 'ryanoasis/vim-devicons'
-" TypeScript Plugin
-Plug 'ianks/vim-tsx'
-" LSP config package
-Plug 'neovim/nvim-lspconfig'
+set.encoding = 'utf-8' -- UTF-8 encoding
 
-" All of your Plugins must be added before the following line
-call plug#end()            " required
+require('packer').startup(function()
+    use 'wbthomason/packer.nvim' -- Packer manages itself
+    use 'preservim/nerdtree' -- NerdTree
+    use 'itchyny/lightline.vim' -- Line for Vim
+    use 'jiangmiao/auto-pairs' -- Autopairs for vim
+    use 'mattn/emmet-vim' -- Emmet for vim
+    use 'ctrlpvim/ctrlp.vim' -- Ctrl-P for faster file search
+    use 'cespare/vim-toml' -- Toml plugin
+    use 'tpope/vim-fugitive' -- Git plugin
+    use 'dracula/vim' -- Dracula theme
+    use 'ryanoasis/vim-devicons' -- Icons
+    use 'ianks/vim-tsx' -- TypeScript usein
+    use 'neovim/nvim-lspconfig' -- LSP config package
+end)
 
-filetype plugin indent on " Plugins for files
-syntax on " Pretty syntaxhighlighting
-set backspace=indent,eol,start " For backward deletions
-set hidden " Can edit files without to save them
-set noswapfile " Swap file will be made
-set hlsearch " For search highlighting
-set wildmenu " For looking up for files
-set nocompatible
-set mouse=a " enable mouse
+vim.cmd('filetype plugin indent on') -- Enable filetype
+vim.cmd('syntax on') -- enable syntax highlighting
+set.backspace = {'indent', 'eol', 'start'} -- For backward deletions
+set.hidden = true -- Can edit files without to save them
+set.swapfile = false -- Swap file will not be made
+set.hlsearch = true -- For search highlighting
+set.wildmenu = true -- Enable wildmenu
+set.compatible = false -- not compatible with vi
+set.mouse = 'a' -- enable mouse
 
-" Lightline settings
+-- Lightline settings
+vim.cmd([[
 let g:lightline = {
       \ 'colorscheme': 'dracula',
       \ }
+]])
 
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
+-- Tab settings
+set.tabstop = 4
+set.shiftwidth = 4
+set.expandtab = true
+set.autoindent = true
 
-lua << EOF
+-- LSP Settings
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -101,47 +95,39 @@ require('lspconfig').ltex.setup {
         }, 
     }, 
 }
-EOF
 
-" Set own leader
-let mapleader=","
+-- Set map leader
+vim.g.mapleader = ','
 
-" Line numbers
-set number
-set relativenumber
+-- Line numbers
+set.number = true
+set.relativenumber = true
 
-" Settings for NerdTREE
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowLineNumbers=1
+-- Settings for NerdTree
+vim.g.NERDTreeShowLineNumbers = 1
+vim.api.nvim_set_keymap('n', '<C-n>', ':NERDTreeToggle<CR>', {})
 
-" Vertical Split below
-set splitbelow
+-- Map for tags jumping
+vim.api.nvim_set_keymap('n', '<leader>t', '<C-]', {noremap = true})
 
-" Terminal settings
-tnoremap jj <C-\><C-N>
+-- Don't use Escape button
+vim.api.nvim_set_keymap('i', 'jj', '<ESC>', {noremap = true})
 
-" For tags jumping
-nnoremap <leader>t <C-]>
-
-" Don't use Escape button
-inoremap jj <ESC>
-
-" Only this will be runtimepath
+-- Only this will be runtimepath
+vim.cmd([[
 let $RTP=stdpath('config')
-let $RC=stdpath('config') . '/init.vim'
+let $RC=stdpath('config') . '/init.lua'
+]])
 
-" Set right path for find
-set path=.,**
+-- Set path for find
+set.path = {'.', '**'}
 
-" Set right shell
-" set shell=powershell.exe
+-- Filetype for different languages
+vim.cmd('au BufRead,BufNewFile *.tex set filetype=tex')
 
-" Filetypes for different languages
-au BufRead,BufNewFile *.a51 set filetype=asm
-au BufRead,BufNewFile *.tex set filetype=tex
+-- Folding
+set.foldmethod = 'indent'
+set.foldlevelstart = 99 -- no folds at beginning
 
-" Folding
-set foldmethod=indent
-set foldlevel=1
-
-colorscheme dracula
+-- Colorscheme
+vim.cmd('colorscheme dracula')
