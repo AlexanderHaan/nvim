@@ -16,6 +16,8 @@ require('packer').startup(function()
     use 'ryanoasis/vim-devicons' -- Icons
     use 'ianks/vim-tsx' -- TypeScript usein
     use 'neovim/nvim-lspconfig' -- LSP config package
+    use 'SirVer/ultisnips' -- Snippet engine
+    use 'honza/vim-snippets' -- Snippets
 end)
 
 vim.cmd('filetype plugin indent on') -- Enable filetype
@@ -95,6 +97,12 @@ require('lspconfig').ltex.setup {
         }, 
     }, 
 }
+
+-- Snippet settings
+vim.g.UltiSnipsExpandTrigger="<tab>"
+vim.g.UltiSnipsJumpForwardTrigger="<c-b>"
+vim.g.UltiSnipsJumpBackwardTrigger="<c-z>"
+vim.g.UltiSnipsEditSplit="vertical"
 
 -- Set map leader
 vim.g.mapleader = ','

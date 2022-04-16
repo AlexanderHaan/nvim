@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/lex/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  ultisnips = {
+    loaded = true,
+    path = "/home/lex/.local/share/nvim/site/pack/packer/start/ultisnips",
+    url = "https://github.com/SirVer/ultisnips"
+  },
   vim = {
     loaded = true,
     path = "/home/lex/.local/share/nvim/site/pack/packer/start/vim",
@@ -118,6 +123,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lex/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-snippets"] = {
+    loaded = true,
+    path = "/home/lex/.local/share/nvim/site/pack/packer/start/vim-snippets",
+    url = "https://github.com/honza/vim-snippets"
   },
   ["vim-toml"] = {
     loaded = true,
