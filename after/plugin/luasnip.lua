@@ -29,5 +29,20 @@ ls.add_snippets("tex", {
     -- Acronym snippet
 	s("ac", {
 		t('\\ac{'), i(1), t('}'), i(0),
+	}),
+    
+    -- Quotation snippet
+	s("qt", {
+		t('\\glqq '), i(1), t('\\grqq{}'), i(0),
+	}),
+    
+    -- Reference snippet
+	s("ref", {
+		t('\\ref{'), i(1), t('}'), i(0),
+	}),
+    
+    -- Italic snippet
+	s("it", {
+		t('\\textit{'), i(1), t('}'), i(0),
 	})
 })
