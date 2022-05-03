@@ -36,6 +36,9 @@ let g:lightline = {
       \ }
 ]])
 
+-- Ctrl-P Settings
+vim.g.ctrlp_custom_ignore = { dir = 'node_modules', }
+
 -- Tab settings
 set.tabstop = 4
 set.shiftwidth = 4
