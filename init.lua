@@ -14,8 +14,8 @@ require('packer').startup(function()
     use 'tpope/vim-fugitive' -- Git plugin
     use 'dracula/vim' -- Dracula theme
     use 'ryanoasis/vim-devicons' -- Icons
-    use 'ianks/vim-tsx' -- TypeScript usein
     use 'neovim/nvim-lspconfig' -- LSP config package
+    use 'MaxMEllon/vim-jsx-pretty' -- React plugin
     use 'L3MON4D3/LuaSnip' -- Snippet engine
 end)
 
