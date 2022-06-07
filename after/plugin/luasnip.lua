@@ -44,5 +44,10 @@ ls.add_snippets("tex", {
     -- Italic snippet
 	s("it", {
 		t('\\textit{'), i(1), t('}'), i(0),
+	}),
+
+    -- Citation snippet
+	s("cite", {
+		t('\\cite{'), i(1), t('}'), i(0),
 	})
 })
