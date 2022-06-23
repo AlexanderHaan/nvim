@@ -49,5 +49,10 @@ ls.add_snippets("tex", {
     -- Citation snippet
 	s("cite", {
 		t('\\cite{'), i(1), t('}'), i(0),
+	}),
+    
+    -- Label snippet
+	s("label", {
+		t('\\label{'), i(1), t('}'), i(0),
 	})
 })
