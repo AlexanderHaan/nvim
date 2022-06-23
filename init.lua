@@ -19,6 +19,10 @@ require('packer').startup(function()
     use 'L3MON4D3/LuaSnip' -- Snippet engine
     use 'nvim-treesitter/nvim-treesitter' -- Treesitter
     use {'nvim-orgmode/orgmode'} -- Org mode for neovim
+    use {
+        "nvim-neorg/neorg",
+        requires = "nvim-lua/plenary.nvim"
+    }
 end)
 
 vim.cmd('filetype plugin indent on') -- Enable filetype
