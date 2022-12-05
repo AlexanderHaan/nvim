@@ -45,18 +45,18 @@ require('lspconfig').rust_analyzer.setup {
     },
 }
 
-require('lspconfig').ltex.setup { 
-    on_attach = on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    },
-    settings = {
-        ltex = { 
-            language = "de-DE", 
-        }, 
-    }, 
-}
+-- require('lspconfig').ltex.setup { 
+--     on_attach = on_attach,
+--     flags = {
+--       -- This will be the default in neovim 0.7+
+--       debounce_text_changes = 150,
+--     },
+--     settings = {
+--         ltex = { 
+--             language = "de-DE", 
+--         }, 
+--     }, 
+-- }
 
 require('lspconfig').tsserver.setup{
     on_attach = on_attach,
